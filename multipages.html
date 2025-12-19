@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Registro Medico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+<div class="container">
+
+  <!-- ENCABEZADO -->
+  <header class="top">
+    <h1>Registro Medico</h1>
+    <p class="muted">Registro de información de pacientes</p>
+  </header>
+
+  <!-- BARRA SUPERIOR -->
+  <section class="toolbar">
+    <div>
+      <label>Registro:</label>
+      <select id="recordSelect"></select>
+      <button id="newRecordBtn" class="btn">Nuevo</button>
+      <button id="deleteRecordBtn" class="btn danger">Eliminar</button>
+    </div>
+
+    <button id="saveBtn" class="btn primary">Grabar</button>
+  </section>
+
+  <!-- STEPS -->
+  <section class="stepper">
+    <div class="step" onclick="showStep(1)">1 Datos Personales</div>
+    <div class="step" onclick="showStep(2)">2 Familiares</div>
+    <div class="step" onclick="showStep(3)">3 Condiciones</div>
+    <div class="step" onclick="showStep(4)">4 Internamientos</div>
+    <div class="step" onclick="showStep(5)">5 Resumen</div>
+  </section>
+
+  <!-- CONTENIDO -->
+  <main class="card">
+
+    <!-- PÁGINA 1 -->
+    <section class="page" id="page1">
+      <h2>Datos Personales</h2>
+
+      <div class="grid">
+        <div class="field">
+          <label>Cédula</label>
+          <input id="cedula" type="text">
+        </div>
+
+        <div class="field">
+          <label>Nombres</label>
+          <input id="nombres" type="text">
+        </div>
+
+        <div class="field">
+          <label>Apellidos</label>
+          <input id="apellidos" type="text">
+        </div>
+
+        <div class="field">
+          <label>Fecha de Nacimiento</label>
+          <input id="fechaNac" type="date">
+        </div>
+
+        <div class="field">
+          <label>Sexo</label>
+          <select id="sexo">
+            <option value="">Seleccione</option>
+            <option>Femenino</option>
+            <option>Masculino</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Teléfono</label>
+          <input id="telefono" type="text">
+        </div>
+
+        <div class="field full">
+          <label>Dirección</label>
+          <input id="direccion" type="text">
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 2 -->
+    <section class="page" id="page2">
+      <h2>Familiares</h2>
+
+      <div class="inline-form">
+        <input id="famNombre" placeholder="Nombre completo">
+        <input id="famParentesco" placeholder="Parentesco">
+        <input id="famEdad" type="number" placeholder="Edad">
+        <button id="addFamiliarBtn" class="btn">Agregar</button>
+      </div>
+
+      <table id="familiaresTable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Parentesco</th>
+            <th>Edad</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- PÁGINA 3 -->
+    <section class="page" id="page3">
+      <h2>Condiciones Pre-Existentes</h2>
+
+      <div class="inline-form">
+        <input id="condEnfermedad" placeholder="Enfermedad">
+        <input id="condTiempo" placeholder="Tiempo con la enfermedad">
+        <button id="addCondicionBtn" class="btn">Agregar</button>
+      </div>
+
+      <table id="condicionesTable">
+        <thead>
+          <tr>
+            <th>Enfermedad</th>
+            <th>Tiempo</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- PÁGINA 4 -->
+    <section class="page" id="page4">
+      <h2>Internamientos</h2>
+
+      <div class="inline-form">
+        <input id="intFecha" type="date">
+        <input id="intCentro" placeholder="Centro Médico">
+        <input id="intDiag" placeholder="Diagnóstico">
+        <button id="addInternamientoBtn" class="btn">Agregar</button>
+      </div>
+
+      <table id="internamientosTable">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Centro</th>
+            <th>Diagnóstico</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- PÁGINA 5 -->
+    <section class="page" id="page5">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <h2>Datos Registrados</h2>
+        <button id="printBtn" class="btn primary">Imprimir</button>
+      </div>
+
+      <div id="cleanSummary"></div>
+    </section>
+
+    <!-- NAVEGACIÓN -->
+    <footer class="nav">
+      <button id="prevBtn" class="btn">Atrás</button>
+      <button id="nextBtn" class="btn primary">Siguiente</button>
+    </footer>
+
+  </main>
+</div>
+
+<script src="./app.js"></script>
+</body>
+</html>
+
+
+
