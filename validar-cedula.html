@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Validar Cédula - Módulo 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f3fa;
+            padding: 40px;
+        }
+        .box {
+            background: #ffffff;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #9f8ad0;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #7d66c2;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Validar Cédula</h2>
+    <input type="text" id="cedula" placeholder="Ingrese la cédula" maxlength="11">
+    <button onclick="validarCedula()">Validar</button>
+    <div id="resultado"></div>
+</div>
+
+<script>
+function validarCedula() {
+
+    let cedula = document.getElementById("cedula").value;
+
+    // Validar estructura: solo números y 11 dígitos
+    if (!/^[0-9]{11}$/.test(cedula)) {
+        document.getElementById("resultado").innerHTML =
+            "LA CÉDULA ES INCORRECTA";
+        return;
+    }
+
+    let total = 0;
+    let multiplicador = 1;
+
+    // Recorremos los primeros 10 dígitos
+    for (let i = 0; i < 10; i++) {
+        let digito = parseInt(cedula.charAt(i));
+        let producto = digito * multiplicador;
+
+        if (producto >= 10) {
+            producto = Math.floor(producto / 10) + (producto % 10);
+        }
+
+        total += producto;
+        multiplicador = (multiplicador === 1) ? 2 : 1;
+    }
+
+    let digitoVerificadorCalculado = (10 - (total % 10)) % 10;
+    let digitoVerificadorReal = parseInt(cedula.charAt(10));
+
+    if (digitoVerificadorCalculado === digitoVerificadorReal) {
+        document.getElementById("resultado").innerHTML =
+            "LA CÉDULA ES CORRECTA";
+    } else {
+        document.getElementById("resultado").innerHTML =
+            "LA CÉDULA ES INCORRECTA";
+    }
+}
+</script>
+
+</body>
+</html>
