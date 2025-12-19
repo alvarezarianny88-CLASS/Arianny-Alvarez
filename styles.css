@@ -1,223 +1,68 @@
-/* ===== Reset básico ===== */
-*{
-  box-sizing:border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
-}
-
-/* ===== Fondo general ===== */
 body{
+  font-family: Arial, sans-serif;
+  background:#f6f7fb;
   margin:0;
-  background:#f6f7fb;      /* gris muy claro */
+  padding:0;
   color:#2b2b2b;
 }
 
-/* ===== Contenedor ===== */
 .container{
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
+  max-width:420px;
+  margin:40px auto;
+  background:#ffffff;
+  padding:25px;
+  border-radius:10px;
+  border:1px solid #dcd7f5;
 }
 
-/* ===== Encabezado ===== */
-.top h1{
-  margin:0;
-  color:#6b5bd2;           /* lila principal */
+h1{
+  color:#6b5bd2;
+  text-align:center;
 }
 
 .muted{
-  color:#6b7280;
-}
-
-/* ===== Tarjeta principal ===== */
-.card{
-  background:#ffffff;
-  border:1px solid #dcd7f5;
-  border-radius:10px;
-  padding:20px;
-}
-
-/* ===== Barra superior ===== */
-.toolbar,
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin:15px 0;
-}
-
-/* ===== Inputs ===== */
-input, select{
-  background:#ffffff;
-  border:1px solid #c7c5e8;
-  border-radius:6px;
-  padding:9px;
-  color:#2b2b2b;
-}
-
-input:focus,
-select:focus{
-  outline:none;
-  border-color:#8b8cf0;
-  box-shadow:0 0 0 2px rgba(139,140,240,.2);
-}
-
-/* ===== Botones ===== */
-.btn{
-  background:#eef0ff;
-  border:1px solid #c7c5e8;
-  color:#3b3b3b;
-  padding:8px 14px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-.btn:hover{
-  background:#e0e4ff;
-}
-
-/* Botón principal */
-.btn.primary{
-  background:#8b8cf0;     /* azul/lila pastel */
-  color:white;
-  border-color:#8b8cf0;
-}
-
-/* Botón eliminar */
-.btn.danger{
-  background:#fde8f1;
-  color:#9f1239;
-  border-color:#f9c4da;
-}
-
-/* ===== Steps ===== */
-.stepper{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:15px;
-}
-
-.step{
-  padding:8px 12px;
-  border-radius:20px;
-  border:1px solid #c7c5e8;
-  background:#f5f6ff;
-  cursor:pointer;
+  color:#666;
   font-size:14px;
-}
-
-.step span{
-  display:inline-block;
-  width:22px;
-  height:22px;
-  line-height:22px;
   text-align:center;
-  border-radius:50%;
-  background:#dcdfff;
-  color:#4b4bbf;
-  margin-right:6px;
 }
 
-.step.active{
+form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+label{
+  font-weight:bold;
+  color:#4b4bbf;
+}
+
+input{
+  padding:8px;
+  border-radius:6px;
+  border:1px solid #c7c5e8;
+}
+
+button{
+  margin-top:10px;
+  padding:10px;
   background:#8b8cf0;
   color:white;
-  border-color:#8b8cf0;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-.step.active span{
-  background:white;
-  color:#6b5bd2;
+button:hover{
+  background:#6f72e8;
 }
 
-/* ===== Páginas ===== */
-.page{display:none}
-.page.active{display:block}
-
-/* ===== Formulario ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
+#qrSection{
+  margin-top:25px;
+  text-align:center;
+  display:none;
 }
 
-.field label{
-  display:block;
-  font-weight:600;
-  margin-bottom:5px;
-  color:#4b4bbf;
+#qrcode{
+  margin:15px auto;
 }
-
-.field.full{
-  grid-column:1/-1;
-}
-
-.inline-form{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:12px 0;
-}
-
-/* ===== Tablas ===== */
-.table-wrap{
-  border:1px solid #dcd7f5;
-  border-radius:8px;
-  overflow:hidden;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-}
-
-thead{
-  background:#eef0ff;
-}
-
-th, td{
-  padding:10px;
-  border-bottom:1px solid #e5e7ff;
-}
-
-th{
-  color:#4b4bbf;
-  text-align:left;
-}
-
-/* ===== Notas ===== */
-.note{
-  margin-top:12px;
-  padding:10px;
-  border-radius:8px;
-}
-
-.note.warn{
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  color:#9a3412;
-}
-
-/* ===== JSON preview ===== */
-.json{
-  background:#f6f7fb;
-  border:1px solid #c7c5e8;
-  border-radius:8px;
-  padding:12px;
-  max-height:300px;
-  overflow:auto;
-}
-
-/* ===== Responsive ===== */
-@media (max-width:900px){
-  .grid{
-    grid-template-columns:1fr;
-  }
-}
-@media print {
-  .toolbar, .stepper, .nav, .top { display:none }
-  .page { display:none }
-  #page5 { display:block }
-  #printBtn { display:none }
-}
-

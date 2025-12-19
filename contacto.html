@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Contactos con QR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Librería QR -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Formulario de Contactos</h1>
+    <p class="muted">Al enviar, se generará un Código QR para guardar el contacto en el celular.</p>
+
+    <form id="contactForm">
+      <label>Nombre</label>
+      <input type="text" id="nombre" required>
+
+      <label>Apellido</label>
+      <input type="text" id="apellido" required>
+
+      <label>Teléfono</label>
+      <input type="tel" id="telefono" required>
+
+      <label>Correo electrónico</label>
+      <input type="email" id="email">
+
+      <label>Empresa</label>
+      <input type="text" id="empresa">
+
+      <button type="submit">Generar Código QR</button>
+    </form>
+
+    <div id="qrSection">
+      <h2>Código QR</h2>
+      <div id="qrcode"></div>
+      <p class="muted">Escanee el QR con su celular para guardar el contacto.</p>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
