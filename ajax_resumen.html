@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumen de AJAX y su funcionamiento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f6f7fb;
+      margin:0;
+      color:#2b2b2b;
+    }
+    .container{
+      max-width:900px;
+      margin:40px auto;
+      background:#ffffff;
+      border:1px solid #dcd7f5;
+      border-radius:10px;
+      padding:24px;
+    }
+    h1{
+      color:#6b5bd2;
+      margin-top:0;
+      text-align:center;
+    }
+    h2{
+      color:#4b4bbf;
+      border-bottom:2px solid #e5e7ff;
+      padding-bottom:6px;
+    }
+    p{
+      line-height:1.6;
+      text-align:justify;
+    }
+    ul{
+      line-height:1.6;
+    }
+    .card{
+      background:#f9f9ff;
+      border:1px solid #c7c5e8;
+      border-radius:10px;
+      padding:16px;
+      margin:16px 0;
+    }
+    button{
+      padding:10px 14px;
+      background:#8b8cf0;
+      color:white;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+    button:hover{
+      background:#6f72e8;
+    }
+    .result{
+      margin-top:15px;
+      padding:12px;
+      background:#eef0ff;
+      border-radius:8px;
+      border:1px solid #c7c5e8;
+    }
+    pre{
+      background:#0f1220;
+      color:#e9ecff;
+      padding:14px;
+      border-radius:10px;
+      overflow:auto;
+      font-size:14px;
+    }
+    .footer{
+      margin-top:30px;
+      text-align:center;
+      font-size:13px;
+      color:#6b7280;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <h1>Resumen de AJAX y su funcionamiento</h1>
+
+  <!-- ================= RESUMEN ================= -->
+  <div class="card">
+    <p>
+      <b>AJAX (Asynchronous JavaScript And XML)</b> es una técnica de desarrollo web
+      que permite a una aplicación <b>comunicarse con el servidor de forma asíncrona</b>,
+      es decir, sin necesidad de recargar toda la página.
+    </p>
+
+    <p>
+      Gracias a AJAX, una página web puede enviar y recibir datos en segundo plano,
+      actualizando solo una parte de la interfaz. Esto mejora la
+      <b>experiencia del usuario</b>, haciendo las aplicaciones más rápidas e interactivas.
+    </p>
+
+    <p>
+      Aunque originalmente se usaba XML para intercambiar datos,
+      actualmente AJAX trabaja principalmente con <b>JSON</b>,
+      utilizando tecnologías como <b>JavaScript, Fetch API o XMLHttpRequest</b>.
+    </p>
+  </div>
+
+  <h2>Usos comunes de AJAX</h2>
+  <ul>
+    <li>Carga de datos sin recargar la página.</li>
+    <li>Formularios que se envían y validan en segundo plano.</li>
+    <li>Búsquedas dinámicas (autocompletado).</li>
+    <li>Actualización de contenido en tiempo real.</li>
+  </ul>
+
+  <!-- ================= EJEMPLO ================= -->
+  <h2>Ejemplo de funcionamiento de AJAX</h2>
+
+  <p>
+    En el siguiente ejemplo, al presionar el botón, la aplicación realiza una
+    <b>petición AJAX</b> para obtener datos y mostrarlos en la misma página,
+    sin recargar el sitio.
+  </p>
+
+  <button onclick="cargarDatos()">Cargar datos con AJAX</button>
+
+  <div id="resultado" class="result">
+    Aquí se mostrarán los datos cargados con AJAX.
+  </div>
+
+  <h3>Código JavaScript utilizado</h3>
+  <pre>
+fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("resultado").innerHTML =
+      "Nombre: " + data.name + "&lt;br&gt;" +
+      "Correo: " + data.email;
+  });
+  </pre>
+
+  <!-- ================= CONCLUSIÓN ================= -->
+  <h2>Conclusión</h2>
+  <div class="card">
+    <p>
+      AJAX es una técnica fundamental en el desarrollo web moderno,
+      ya que permite crear aplicaciones más <b>dinámicas, rápidas e interactivas</b>.
+      Su capacidad de actualizar información sin recargar la página
+      lo convierte en un elemento clave para mejorar la experiencia del usuario.
+    </p>
+  </div>
+
+  <div class="footer">
+    Arianny Alvarez · 100693877
+  </div>
+
+</div>
+
+<script>
+function cargarDatos(){
+  fetch("https://jsonplaceholder.typicode.com/users/1")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("resultado").innerHTML =
+        "<b>Nombre:</b> " + data.name + "<br>" +
+        "<b>Correo:</b> " + data.email + "<br>" +
+        "<b>Ciudad:</b> " + data.address.city;
+    })
+    .catch(() => {
+      document.getElementById("resultado").innerText =
+        "Error al cargar los datos.";
+    });
+}
+</script>
+
+</body>
+</html>
