@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumen del Modelo MVC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f6f7fb;
+      margin:0;
+      color:#2b2b2b;
+    }
+    .container{
+      max-width:900px;
+      margin:40px auto;
+      background:#ffffff;
+      border:1px solid #dcd7f5;
+      border-radius:10px;
+      padding:24px;
+    }
+    h1{
+      color:#6b5bd2;
+      margin-top:0;
+      text-align:center;
+    }
+    h2{
+      color:#4b4bbf;
+      border-bottom:2px solid #e5e7ff;
+      padding-bottom:6px;
+    }
+    p{
+      line-height:1.6;
+      text-align:justify;
+    }
+    ul{
+      line-height:1.6;
+    }
+    .card{
+      background:#f9f9ff;
+      border:1px solid #c7c5e8;
+      border-radius:10px;
+      padding:16px;
+      margin:16px 0;
+    }
+    .example{
+      background:#eef0ff;
+      border:1px solid #c7c5e8;
+      border-radius:10px;
+      padding:16px;
+      margin:16px 0;
+    }
+    pre{
+      background:#0f1220;
+      color:#e9ecff;
+      padding:14px;
+      border-radius:10px;
+      overflow:auto;
+      font-size:14px;
+    }
+    .footer{
+      margin-top:30px;
+      text-align:center;
+      font-size:13px;
+      color:#6b7280;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <h1>Resumen del Modelo MVC</h1>
+
+  <!-- ================= RESUMEN ================= -->
+  <div class="card">
+    <p>
+      El <b>Modelo MVC (Modelo – Vista – Controlador)</b> es un patrón de arquitectura de software
+      utilizado para <b>organizar y separar responsabilidades</b> dentro de una aplicación.
+      Su objetivo principal es facilitar el mantenimiento, la escalabilidad y la reutilización del código.
+    </p>
+
+    <p>
+      En el modelo MVC, la aplicación se divide en tres componentes principales:
+      el <b>Modelo</b>, la <b>Vista</b> y el <b>Controlador</b>, cada uno con una función específica
+      y claramente definida.
+    </p>
+  </div>
+
+  <!-- ================= COMPONENTES ================= -->
+  <h2>Componentes del Modelo MVC</h2>
+
+  <div class="card">
+    <p><b>Modelo:</b> Representa los datos y la lógica de negocio de la aplicación.
+      Se encarga de gestionar la información, realizar cálculos y comunicarse con la base de datos.</p>
+
+    <p><b>Vista:</b> Es la capa encargada de mostrar la información al usuario.
+      Incluye las interfaces gráficas, páginas web o pantallas que permiten la interacción.</p>
+
+    <p><b>Controlador:</b> Actúa como intermediario entre el Modelo y la Vista.
+      Recibe las acciones del usuario, procesa la información y decide qué Vista mostrar.</p>
+  </div>
+
+  <!-- ================= USOS ================= -->
+  <h2>¿Para qué se utiliza el modelo MVC?</h2>
+  <ul>
+    <li>Organizar mejor el código de una aplicación.</li>
+    <li>Separar la lógica de negocio de la interfaz gráfica.</li>
+    <li>Facilitar el mantenimiento y las modificaciones.</li>
+    <li>Permitir el trabajo colaborativo entre desarrolladores.</li>
+  </ul>
+
+  <!-- ================= EJEMPLO ================= -->
+  <h2>Ejemplo del Modelo MVC</h2>
+
+  <p>
+    Supongamos una aplicación web de registro de usuarios:
+  </p>
+
+  <div class="example">
+    <p><b>Modelo (Usuario):</b> gestiona los datos del usuario.</p>
+    <pre>
+class Usuario {
+  constructor(nombre, correo){
+    this.nombre = nombre;
+    this.correo = correo;
+  }
+}
+    </pre>
+
+    <p><b>Vista (Formulario HTML):</b> muestra el formulario al usuario.</p>
+    <pre>
+&lt;form&gt;
+  &lt;input type="text" placeholder="Nombre"&gt;
+  &lt;input type="email" placeholder="Correo"&gt;
+  &lt;button&gt;Guardar&lt;/button&gt;
+&lt;/form&gt;
+    </pre>
+
+    <p><b>Controlador:</b> recibe la información y coordina el proceso.</p>
+    <pre>
+function guardarUsuario(){
+  const usuario = new Usuario("Arianny", "arianny@email.com");
+  // Se envía al modelo y luego se actualiza la vista
+}
+    </pre>
+  </div>
+
+ 
+  <!-- ================= CONCLUSIÓN ================= -->
+  <h2>Conclusión</h2>
+  <div class="card">
+    <p>
+      El modelo MVC es una arquitectura fundamental en el desarrollo de software,
+      ya que promueve una <b>estructura clara y ordenada</b>.
+      Gracias a la separación de responsabilidades, las aplicaciones basadas en MVC
+      son más fáciles de mantener, escalar y comprender.
+    </p>
+  </div>
+
+  <div class="footer">
+    Arianny Alvarez · 100693877
+  </div>
+
+</div>
+</body>
+</html>
