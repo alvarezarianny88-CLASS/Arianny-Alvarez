@@ -1,0 +1,184 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  background: #f4f0ff;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #5a189a, #9d4edd);
+  color: white;
+  padding: 15px;
+}
+
+h1 {
+  margin: 0 0 10px 0;
+}
+
+/* MENÚ */
+nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.2);
+  border-radius: 6px;
+}
+
+/* SUBMENÚ */
+nav ul ul {
+  display: none;
+  position: absolute;
+  background: #7b2cbf;
+  top: 100%;
+  min-width: 200px;
+}
+
+nav li:hover > ul {
+  display: block;
+}
+
+/* CONTENIDO */
+main {
+  background: white;
+  margin: 25px;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+/* INICIO - CARDS */
+.titulo-principal {
+  text-align: center;
+  color: #5a189a;
+  margin-bottom: 25px;
+}
+
+.cards-inicio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #f4efff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(90, 24, 154, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card h3 {
+  color: #7b2cbf;
+  margin-top: 0;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(90, 24, 154, 0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul ul {
+    position: static;
+  }
+}
+/* =========================
+   ADMINISTRADOR DE MENÚ
+========================= */
+
+.admin-panel {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 15px 40px rgba(90, 24, 154, 0.18);
+}
+
+.admin-panel h2 {
+  margin-top: 0;
+  color: #5a189a;
+}
+
+.admin-desc {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.admin-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.admin-form input,
+.admin-form textarea {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #d6c8f0;
+}
+
+.admin-form textarea {
+  grid-column: 1 / -1;
+  min-height: 130px;
+}
+
+.admin-buttons {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+}
+
+.admin-buttons button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-buttons button:nth-child(1) {
+  background: #7b2cbf;
+  color: white;
+}
+
+.admin-buttons button:nth-child(2) {
+  background: #9d4edd;
+  color: white;
+}
+
+.admin-buttons button:nth-child(3) {
+  background: #e63946;
+  color: white;
+}
+
+
+
+
+
+
+
+

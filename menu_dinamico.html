@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú Dinámico</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Iconos -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <h1>Mi Sitio Web</h1>
+  <nav id="menu"></nav>
+</header>
+
+<main id="contenido">
+  <h2>Bienvenidos</h2>
+  <p>Seleccione una opción del menú.</p>
+</main>
+<section class="admin-panel">
+  <h2>Administrar menú</h2>
+  <p class="admin-desc">
+    Agrega, edita o elimina opciones del menú sin recargar la página.
+  </p>
+
+  <div class="admin-form">
+    <input id="admin-id" type="number" placeholder="ID único">
+    <input id="admin-nombre" type="text" placeholder="Nombre">
+    <input id="admin-icono" type="text" placeholder="Icono (fa-home)">
+    <input id="admin-padre" type="number" placeholder="ID Padre (opcional)">
+    <textarea id="admin-contenido" placeholder="Contenido HTML"></textarea>
+
+    <div class="admin-buttons">
+      <button onclick="adminAgregar()">Agregar</button>
+      <button onclick="adminEditar()">Editar</button>
+      <button onclick="adminEliminar()">Eliminar</button>
+    </div>
+  </div>
+</section>
+
+<script src="menu.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
