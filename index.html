@@ -2,107 +2,169 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Spring Framework</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos Biográficos - Arianny Álvarez García</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f0ff;
-            color: #333;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
-            padding: 0;
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
         }
         header {
-            background-color: #a78bfa;
+            background: #c3b1e1;
             color: white;
+            padding: 40px 20px;
             text-align: center;
-            padding: 20px;
+        }
+        header h1 {
+            margin-bottom: 10px;
+        }
+        nav {
+            background: #9f8ad0;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
         }
         section {
-            padding: 20px;
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 6px;
         }
         h2 {
-            color: #6b21a8;
+            color: #c3b1e1;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
+        ul {
+            margin-left: 20px;
         }
-        table, th, td {
-            border: 1px solid #c4b5fd;
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
+        pre {
+            background: #f1f1f1;
+            padding: 15px;
+            overflow-x: auto;
+            border-left: 4px solid #c3b1e1;
         }
         footer {
-            background-color: #a78bfa;
+            background: #9f8ad0;
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 20px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Datos Biográficos</h1>
-    </header>
+<header>
+    <h1>Spring Framework</h1>
+    <p>Framework líder para el desarrollo de aplicaciones empresariales en Java</p>
+</header>
 
-    <section>
-        <h2>Información Personal</h2>
-        <p><strong>Nombre completo:</strong> Arianny Álvarez García</p>
-        <p><strong>Carrera:</strong> Licenciatura en Informática</p>
-        <p><strong>Universidad:</strong> Universidad Autónoma de Santo Domingo (UASD)</p>
-        <p><strong>Correo:</strong> alvarezarianny88@gmail.com</p>
-    </section>
+<nav>
+    <a href="#intro">Introducción</a>
+    <a href="#que-es">¿Qué es Spring?</a>
+    <a href="#caracteristicas">Características</a>
+    <a href="#funcionalidades">Funcionalidades</a>
+    <a href="#conclusion">Conclusión</a>
+</nav>
 
-    <section>
-        <h2>Horario de Clases - Semestre 2025-20</h2>
-        <table>
-            <tr>
-                <th>Día</th>
-                <th>Materia</th>
-                <th>Hora</th>
-                <th>Aula</th>
-            </tr>
-            <tr>
-                <td>Lunes</td>
-                <td>Lenguaje de Programación III</td>
-                <td>7:00 p.m. - 9:00 p.m.</td>
-                <td>MAXIMO AVILES BLONDA 203</td>
-            </tr>
-            <tr>
-                <td>Martes</td>
-                <td>Matemática Discreta</td>
-                <td>10:00 p.m. - 1:00 p.m.</td>
-                <td>EDIF-B-105</td>
-            </tr>
-            <tr>
-                <td>Miércoles</td>
-                <td>Laboratorio de Programación III</td>
-                <td>7:00 a.m. - 9:00 a.m.</td>
-                <td>LABORATORIO DE INFORMATICA 102</td>
-            </tr>
-            <tr>
-                <td>Jueves</td>
-                <td>Base de Datos I</td>
-                <td>7:00 p.m. - 9:00 p.m.</td>
-                <td>EDIF-D-204</td>
-            </tr>
-            <tr>
-                <td>Viernes</td>
-                <td>Redes de procesamiento de datos</td>
-                <td>7:00 p.m. - 9:00 p.m.</td>
-                <td>EDIF-F-101</td>
-            </tr>
-        </table>
-    </section>
+<section id="intro">
+    <h2>Introducción</h2>
+    <p>
+        En el desarrollo de aplicaciones empresariales modernas, la escalabilidad, seguridad y mantenibilidad son aspectos fundamentales. Spring Framework surge como una solución integral que permite construir aplicaciones Java robustas y flexibles, reduciendo la complejidad del desarrollo y promoviendo buenas prácticas de arquitectura.
+    </p>
+</section>
 
-    <footer>
-        <p>© 2025 Arianny Álvarez García</p>
-    </footer>
+<section id="que-es">
+    <h2>¿Qué es Spring Framework?</h2>
+    <p>
+        Spring Framework es un framework de código abierto diseñado para facilitar el desarrollo de aplicaciones empresariales en Java. Su base se centra en los principios de Inversión de Control (IoC) e Inyección de Dependencias (DI), permitiendo aplicaciones desacopladas, fáciles de probar y mantener.
+    </p>
+</section>
+
+<section id="caracteristicas">
+    <h2>Principales Características</h2>
+    <ul>
+        <li>Inversión de Control (IoC)</li>
+        <li>Inyección de Dependencias (DI)</li>
+        <li>Programación Orientada a Aspectos (AOP)</li>
+        <li>Arquitectura modular y ligera</li>
+        <li>Integración con múltiples tecnologías</li>
+        <li>Soporte para aplicaciones web y microservicios</li>
+    </ul>
+</section>
+
+<section id="funcionalidades">
+    <h2>Funcionalidades Destacadas</h2>
+
+    <h3>Spring MVC</h3>
+    <pre>
+@Controller
+public class HomeController {
+    @GetMapping("/hello")
+    @ResponseBody
+    public String sayHello() {
+        return "Hola desde Spring MVC";
+    }
+}
+    </pre>
+
+    <h3>Spring Data JPA</h3>
+    <pre>
+public interface UserRepository extends JpaRepository<User, Long> {
+}
+    </pre>
+
+    <h3>Spring Security</h3>
+    <pre>
+@Override
+protected void configure(HttpSecurity http) throws Exception {
+    http
+        .authorizeRequests()
+        .anyRequest().authenticated()
+        .and()
+        .formLogin();
+}
+    </pre>
+
+    <h3>Spring Boot</h3>
+    <pre>
+@SpringBootApplication
+public class App {
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+    }
+}
+    </pre>
+</section>
+
+<section id="conclusion">
+    <h2>Conclusión</h2>
+    <p>
+        Spring Framework se ha convertido en el estándar de facto para el desarrollo de aplicaciones Java empresariales gracias a su enfoque modular, flexible y altamente escalable. Su arquitectura basada en IoC y DI fomenta aplicaciones desacopladas, organizadas y fáciles de mantener.
+    </p>
+    <p>
+        La incorporación de Spring Boot revolucionó el ecosistema Spring al simplificar configuraciones complejas, acelerar el desarrollo y facilitar la creación de aplicaciones listas para producción. Además, su soporte para seguridad, persistencia de datos y microservicios lo posiciona como una herramienta clave para enfrentar los desafíos tecnológicos actuales.
+    </p>
+    <p>
+        En definitiva, Spring no solo optimiza el desarrollo, sino que permite construir aplicaciones seguras, modernas y preparadas para crecer en entornos empresariales exigentes.
+    </p>
+</section>
+
+<footer>
+    <p>© 2025 - Spring Framework | Página educativa</p>
+</footer>
 
 </body>
 </html>
+
