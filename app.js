@@ -1,37 +1,69 @@
-const form = document.getElementById("contactForm");
-const qrSection = document.getElementById("qrSection");
-const qrContainer = document.getElementById("qrcode");
+const form = document.getElementById("salesForm");
+const mesInput = document.getElementById("mes");
+const montoInput = document.getElementById("monto");
 
+const ctx = document.getElementById("ventasChart").getContext("2d");
+
+// Data proporcionada por la aplicación
+let meses = [];
+let ventas = [];
+
+// Crear gráfico vacío
+const ventasChart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: meses,
+    datasets: [{
+      label: "Ventas por Mes",
+      data: ventas,
+      backgroundColor: pastelColors
+    }]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+// Al enviar el formulario
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const apellido = document.getElementById("apellido").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const empresa = document.getElementById("empresa").value.trim();
+  const mes = mesInput.value;
+  const monto = Number(montoInput.value);
 
-  // Formato vCard (estándar para contactos)
-  const vCard = `
-BEGIN:VCARD
-VERSION:3.0
-N:${apellido};${nombre}
-FN:${nombre} ${apellido}
-ORG:${empresa}
-TEL;TYPE=CELL:${telefono}
-EMAIL:${email}
-END:VCARD
-`.trim();
+  if (!mes || monto <= 0) return;
 
-  // Limpiar QR anterior
-  qrContainer.innerHTML = "";
+  // Si el mes ya existe, se acumula
+  const index = meses.indexOf(mes);
+  if (index !== -1) {
+    ventas[index] += monto;
+  } else {
+    meses.push(mes);
+    ventas.push(monto);
+  }
 
-  // Generar QR
-  new QRCode(qrContainer, {
-    text: vCard,
-    width: 220,
-    height: 220
-  });
+  // Actualizar gráfico incrustado
+  ventasChart.update();
 
-  qrSection.style.display = "block";
+  // Limpiar formulario
+  form.reset();
 });
+const pastelColors = [
+  "#fbcfe8", // rosa
+  "#ddd6fe", // lila
+  "#bfdbfe", // azul
+  "#bbf7d0", // verde
+  "#fde68a", // amarillo
+  "#fecaca", // rojo suave
+  "#e9d5ff", // violeta
+  "#cffafe", // cyan
+  "#fed7aa", // naranja
+  "#e0e7ff", // azul claro
+  "#f5d0fe", // magenta
+  "#d1fae5"  // verde agua
+];

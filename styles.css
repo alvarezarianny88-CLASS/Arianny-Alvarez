@@ -7,7 +7,7 @@ body{
 }
 
 .container{
-  max-width:420px;
+  max-width:500px;
   margin:40px auto;
   background:#ffffff;
   padding:25px;
@@ -30,6 +30,7 @@ form{
   display:flex;
   flex-direction:column;
   gap:10px;
+  margin-top:15px;
 }
 
 label{
@@ -37,7 +38,7 @@ label{
   color:#4b4bbf;
 }
 
-input{
+input, select{
   padding:8px;
   border-radius:6px;
   border:1px solid #c7c5e8;
@@ -57,12 +58,12 @@ button:hover{
   background:#6f72e8;
 }
 
-#qrSection{
+.chart-box{
+  margin-top:30px;
+}
+.author{
   margin-top:25px;
   text-align:center;
-  display:none;
-}
-
-#qrcode{
-  margin:15px auto;
+  font-size:13px;
+  color:#6b7280;
 }

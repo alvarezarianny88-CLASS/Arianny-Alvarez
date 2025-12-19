@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Ventas con Gráfico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <!-- Librería Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Registro de Ventas Mensuales</h1>
+    <p class="muted">
+      La información ingresada en el formulario alimenta directamente el gráfico.
+    </p>
+
+    <!-- FORMULARIO -->
+    <form id="salesForm">
+      <label>Mes</label>
+      <select id="mes" required>
+        <option value="">Seleccione</option>
+        <option>Enero</option>
+        <option>Febrero</option>
+        <option>Marzo</option>
+        <option>Abril</option>
+        <option>Mayo</option>
+        <option>Junio</option>
+        <option>Julio</option>
+        <option>Agosto</option>
+        <option>Septiembre</option>
+        <option>Octubre</option>
+        <option>Noviembre</option>
+        <option>Diciembre</option>
+      </select>
+
+      <label>Monto de Ventas</label>
+      <input type="number" id="monto" min="0" required>
+
+      <button type="submit">Agregar al Gráfico</button>
+    </form>
+
+    <!-- GRÁFICO INCRUSTADO -->
+    <div class="chart-box">
+      <canvas id="ventasChart"></canvas>
+    </div>
+  </div>
+<footer class="author">
+  Arianny Alvarez · Matrícula 100693877
+</footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
