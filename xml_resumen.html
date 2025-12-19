@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resumen de XML y su uso</title>
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f6f7fb;
+      margin:0;
+      color:#2b2b2b;
+    }
+    .container{
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border: 1px solid #dcd7f5;
+      border-radius: 10px;
+      padding: 24px;
+    }
+    h1{color:#6b5bd2;margin-top:0}
+    h2{color:#4b4bbf}
+    p{line-height:1.6}
+    ul{line-height:1.6}
+    .card{
+      background:#f9f9ff;
+      border:1px solid #c7c5e8;
+      border-radius:10px;
+      padding:16px;
+      margin:16px 0;
+    }
+    pre{
+      background:#0f1220;
+      color:#e9ecff;
+      padding:14px;
+      border-radius:10px;
+      overflow:auto;
+      font-size: 14px;
+    }
+    .footer{
+      margin-top: 22px;
+      text-align:center;
+      font-size:13px;
+      color:#6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Resumen de XML y su uso</h1>
+
+    <div class="card">
+      <p>
+        <b>XML (eXtensible Markup Language)</b> es un lenguaje de marcado diseñado para
+        <b>almacenar, estructurar y transportar información</b> de manera legible tanto para humanos como para máquinas.
+        A diferencia de HTML (que se centra en mostrar contenido), XML se enfoca en <b>describir los datos</b> y su significado.
+      </p>
+
+      <p>
+        XML permite crear <b>etiquetas personalizadas</b> para representar información como registros de usuarios,
+        catálogos de productos, configuraciones de sistemas y comunicación entre aplicaciones.
+        Sus datos se organizan en una <b>estructura jerárquica</b> (etiquetas anidadas), lo cual facilita el orden y la interpretación.
+      </p>
+
+      <p>
+        Además, XML es <b>independiente del sistema operativo y del lenguaje</b>, por lo que se usa en diferentes plataformas.
+        En muchos entornos se puede validar con reglas (por ejemplo, DTD o XSD) para asegurar que los datos estén correctos.
+      </p>
+    </div>
+
+    <h2>Usos comunes de XML</h2>
+    <ul>
+      <li>Intercambio de datos entre sistemas (integración de aplicaciones).</li>
+      <li>Servicios web tradicionales (por ejemplo, SOAP).</li>
+      <li>Archivos de configuración de programas y servidores.</li>
+      <li>Almacenamiento de información estructurada (registros, catálogos, listas).</li>
+      <li>Formatos relacionados con XML (RSS, SVG, etc.).</li>
+    </ul>
+
+    <h2>Ejemplo de XML</h2>
+    <p>Ejemplo de un archivo XML que guarda información de contactos:</p>
+
+    <pre><?xml version="1.0" encoding="UTF-8"?>
+<contactos>
+  <contacto>
+    <nombre>Arianny</nombre>
+    <apellido>Alvarez</apellido>
+    <telefono>809-555-1234</telefono>
+    <correo>arianny@email.com</correo>
+  </contacto>
+  <contacto>
+    <nombre>Juan</nombre>
+    <apellido>Pérez</apellido>
+    <telefono>829-555-5678</telefono>
+    <correo>juan@email.com</correo>
+  </contacto>
+</contactos>
+</pre>
+
+    <h2>Conclusión</h2>
+    <div class="card">
+      <p>
+        XML es una herramienta fundamental para el <b>manejo e intercambio de datos estructurados</b>.
+        Su flexibilidad y estandarización permiten comunicar información entre diferentes sistemas de forma clara,
+        organizada y compatible.
+      </p>
+    </div>
+
+    <div class="footer">
+      Arianny Alvarez · 100693877
+    </div>
+  </div>
+</body>
+</html>
