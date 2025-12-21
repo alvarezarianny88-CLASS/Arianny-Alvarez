@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>📊 Seleccionar encuesta</h2>
+
+<p>Elige una encuesta para ver sus resultados:</p>
+
+<ul>
+{% for e in encuestas %}
+    <li style="margin:10px 0;">
+        <a href="/reporte?encuesta_id={{ e.id }}">
+            {{ e.titulo }}
+        </a>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

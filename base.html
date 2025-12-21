@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Plataforma de Encuestas</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:#f8f6fb;
+    color:#2b2b2b;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(90deg,#cdb4db,#8ecae6);
+    padding:25px 40px;
+    color:white;
+}
+
+/* LOGO */
+.logo{
+    display:flex;
+    align-items:center;
+}
+
+.logo-icon{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:white;
+    color:#9d4edd;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:bold;
+    margin-right:15px;
+}
+
+.logo-text h1{
+    margin:0;
+    font-size:26px;
+}
+
+.logo-text p{
+    margin:4px 0 0;
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* MENU */
+.top-menu{
+    margin-top:20px;
+    display:flex;
+    gap:15px;
+}
+
+.menu-item{
+    background:rgba(255,255,255,0.25);
+    padding:10px 18px;
+    border-radius:20px;
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:all 0.3s ease;
+}
+
+.menu-item:hover{
+    background:white;
+    color:#7b2cbf;
+}
+
+/* DROPDOWN */
+.menu-dropdown{
+    position:relative;
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background:white;
+    min-width:220px;
+    border-radius:10px;
+    margin-top:10px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    overflow:hidden;
+    z-index:100;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:12px 16px;
+    text-decoration:none;
+    color:#333;
+    font-size:14px;
+}
+
+.dropdown-content a:hover{
+    background:#f0e6fa;
+    color:#7b2cbf;
+}
+
+.menu-dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* WELCOME */
+.welcome{
+    background:white;
+    margin:30px auto;
+    max-width:1200px;
+    border-radius:10px;
+    padding:30px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.welcome h2{
+    margin-top:0;
+    color:#7b2cbf;
+}
+
+/* LAYOUT */
+.container{
+    display:flex;
+    max-width:1200px;
+    margin:30px auto;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:260px;
+    background:#fff;
+    border-radius:10px;
+    padding:20px;
+    margin-right:25px;
+}
+
+.sidebar h3{
+    margin-top:0;
+    border-bottom:2px solid #cdb4db;
+    padding-bottom:8px;
+    margin-bottom:20px;
+}
+
+.category-card{
+    display:block;
+    background:#f4effa;
+    border-left:5px solid #9d4edd;
+    border-radius:8px;
+    padding:12px 15px;
+    margin-bottom:15px;
+    transition:all 0.3s ease;
+    color:#2b2b2b;
+    text-decoration:none;
+}
+
+.category-card:hover{
+    background:#e9def5;
+    transform:translateX(5px);
+}
+
+/* CONTENT */
+main{
+    flex:1;
+    background:#fff;
+    border-radius:10px;
+    padding:30px;
+}
+
+/* BUTTON */
+button{
+    background:#9d4edd;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7b2cbf;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    background:#e9def5;
+}
+
+/* FORMS */
+.form-card{
+    background:#fdfcff;
+    border-radius:12px;
+    padding:25px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.05);
+}
+
+.form-row{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.form-group{
+    flex:1;
+    min-width:200px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* LIST */
+.listado{
+    list-style:none;
+    padding:0;
+}
+
+.listado li{
+    background:#f4effa;
+    padding:10px 15px;
+    border-radius:8px;
+    margin-bottom:10px;
+}
+
+/* DELETE BUTTON */
+.btn-delete{
+    background:#e63946;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-delete:hover{
+    opacity:0.85;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">📊</div>
+        <div class="logo-text">
+            <h1>Plataforma de Encuestas</h1>
+            <p>Sistema de gestión de encuestas y votaciones</p>
+        </div>
+    </div>
+
+    <nav class="top-menu">
+        <a href="/participantes" class="menu-item">👤 Participantes</a>
+
+        <div class="menu-dropdown">
+            <span class="menu-item">⚙️ Administración</span>
+            <div class="dropdown-content">
+                <a href="/admin/encuesta">📌 Crear encuestas</a>
+                <a href="/admin/pregunta">📝 Preguntas y aspirantes</a>
+            </div>
+        </div>
+
+        <a href="/encuesta" class="menu-item">🗳️ Encuesta</a>
+        <a href="/reporte" class="menu-item">📊 Resultados</a>
+    </nav>
+</header>
+
+<div class="welcome">
+    <h2>Bienvenido al Sistema de Encuestas</h2>
+    <p>
+        Esta plataforma está diseñada para la creación, administración y análisis
+        de encuestas digitales. Permite registrar participantes, definir preguntas
+        y opciones de votación, recopilar respuestas de manera segura y visualizar
+        los resultados de forma clara y organizada.
+    </p>
+</div>
+
+<div class="container">
+    <aside class="sidebar">
+        <h3>Panel</h3>
+
+        <a href="/encuestas_activas" class="category-card">
+            📌 <strong>Encuestas activas</strong>
+            <p>Encuestas disponibles para votar</p>
+        </a>
+
+        <a href="/reporte" class="category-card">
+            📊 <strong>Resultados</strong>
+            <p>Visualización de votos y estadísticas</p>
+        </a>
+
+        <a href="/estadisticas" class="category-card">
+            📈 <strong>Estadísticas</strong>
+            <p>Análisis general de participación</p>
+        </a>
+
+        <a href="/historial" class="category-card">
+            🗂️ <strong>Historial</strong>
+            <p>Encuestas realizadas anteriormente</p>
+        </a>
+    </aside>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</div>
+
+<footer>
+    Proyecto Final – Plataforma de Encuestas
+</footer>
+
+</body>
+</html>
+
+

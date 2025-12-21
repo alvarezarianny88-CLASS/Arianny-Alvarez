@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>📌 Encuestas activas</h2>
+
+{% if encuestas %}
+<ul>
+    {% for e in encuestas %}
+        <li style="margin:15px 0;">
+            <strong>{{ e.titulo }}</strong><br>
+            <a href="/encuesta">Votar</a> |
+            <a href="/reporte?encuesta_id={{ e.id }}">Ver resultados</a>
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No hay encuestas creadas.</p>
+{% endif %}
+
+{% endblock %}
+
+

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Registro de Participantes</h2>
+
+<div class="form-card">
+    <form method="post">
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" name="apellido" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Edad</label>
+                <input type="number" name="campo1" min="1">
+            </div>
+
+            <div class="form-group">
+                <label>Género</label>
+                <select name="campo2">
+                    <option value="">Seleccione</option>
+                    <option>Femenino</option>
+                    <option>Masculino</option>
+                    <option>Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Nivel educativo</label>
+                <select name="campo3">
+                    <option value="">Seleccione</option>
+                    <option>Básico</option>
+                    <option>Secundario</option>
+                    <option>Universitario</option>
+                    <option>Postgrado</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="text-align:right; margin-top:20px;">
+            <button type="submit">Guardar participante</button>
+        </div>
+    </form>
+</div>
+
+<hr style="margin:40px 0;">
+
+<h3>Participantes registrados</h3>
+
+<ul class="listado">
+    {% for p in participantes %}
+        <li style="display:flex; justify-content:space-between; align-items:center;">
+            <span>
+                <strong>{{ p.email }}</strong> — {{ p.nombre }} {{ p.apellido }}
+            </span>
+
+            <form method="post"
+                  action="/participantes/eliminar"
+                  onsubmit="return confirm('¿Desea eliminar este participante?');">
+                <input type="hidden" name="participante_id" value="{{ p.id }}">
+                <button type="submit" class="btn-delete">Eliminar</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="vote-container">
+
+    <div class="vote-card">
+        <h2 class="vote-title">{{ pregunta.texto }}</h2>
+        <p class="vote-subtitle">
+            Selecciona una opción y confirma tu voto.
+        </p>
+
+        <form method="post" action="/votar">
+
+            <!-- datos ocultos -->
+            <input type="hidden" name="email" value="{{ email }}">
+            <input type="hidden" name="encuesta_id" value="{{ encuesta_id }}">
+
+            <div class="options-list">
+                {% for o in opciones %}
+                <label class="option-card">
+                    <input type="radio" name="opcion_id" value="{{ o.id }}" required>
+                    <span class="option-text">{{ o.texto }}</span>
+                </label>
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="vote-button">
+                🗳️ Confirmar voto
+            </button>
+        </form>
+    </div>
+
+</div>
+
+<style>
+.vote-container{
+    display:flex;
+    justify-content:center;
+    margin-top:40px;
+}
+
+.vote-card{
+    background:white;
+    width:100%;
+    max-width:600px;
+    padding:35px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.vote-title{
+    text-align:center;
+    color:#7b2cbf;
+    margin-bottom:10px;
+}
+
+.vote-subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:30px;
+}
+
+.options-list{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.option-card{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px 18px;
+    border-radius:12px;
+    border:2px solid #e0aaff;
+    cursor:pointer;
+    transition:all 0.2s ease;
+}
+
+.option-card:hover{
+    background:#f3e8ff;
+    border-color:#c77dff;
+}
+
+.option-card input{
+    accent-color:#9d4edd;
+    transform:scale(1.2);
+}
+
+.option-text{
+    font-size:16px;
+}
+
+.vote-button{
+    width:100%;
+    margin-top:30px;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(90deg,#9d4edd,#c77dff);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vote-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(157,78,221,0.4);
+}
+</style>
+{% endblock %}
+
+
+
+
+   
+

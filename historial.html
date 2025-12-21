@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Historial de encuestas</h2>
+
+<ul class="listado">
+    {% for e in encuestas %}
+        <li>{{ e.titulo }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

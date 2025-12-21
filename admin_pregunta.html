@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Administrar Preguntas y Opciones</h2>
+
+<!-- ================== CREAR PREGUNTA ================== -->
+<h3>Crear pregunta</h3>
+
+<form method="post" action="/admin/pregunta">
+    <label>Encuesta:</label><br>
+    <select name="encuesta_id" required>
+        {% for e in encuestas %}
+            <option value="{{ e.id }}">{{ e.titulo }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Texto de la pregunta:</label><br>
+    <input type="text" name="texto" required style="width:70%; padding:8px;"><br><br>
+
+    <button type="submit">Crear pregunta</button>
+</form>
+
+<hr style="margin:30px 0;">
+
+<!-- ================== AGREGAR OPCIÓN ================== -->
+<h3>Agregar opción (libro / aspirante)</h3>
+
+<form method="post" action="/admin/opcion">
+    <label>Pregunta:</label><br>
+    <select name="pregunta_id" required>
+        {% for p in preguntas %}
+            <option value="{{ p.id }}">{{ p.texto }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Texto de la opción:</label><br>
+    <input type="text" name="texto" required style="width:60%; padding:8px;"><br><br>
+
+    <button type="submit">Agregar opción</button>
+</form>
+
+<hr style="margin:30px 0;">
+
+<!-- ================== LISTADO ================== -->
+<h3>Preguntas y opciones registradas</h3>
+
+{% for p in preguntas %}
+    <div style="margin-bottom:20px; padding:15px; border:1px solid #ddd; border-radius:8px;">
+        <h4>{{ p.texto }}</h4>
+
+        <!-- Eliminar pregunta -->
+        <form method="post"
+              action="/admin/pregunta/eliminar"
+              onsubmit="return confirm('¿Eliminar esta pregunta y todas sus opciones?');"
+              style="margin-bottom:10px;">
+            <input type="hidden" name="pregunta_id" value="{{ p.id }}">
+            <button type="submit" class="btn-delete">Eliminar pregunta</button>
+        </form>
+
+        {% set opciones_pregunta = opciones | selectattr("pregunta_id", "equalto", p.id) | list %}
+
+        {% if opciones_pregunta %}
+            <ul class="listado">
+                {% for o in opciones_pregunta %}
+                    <li style="display:flex; justify-content:space-between; align-items:center;">
+                        <span>{{ o.texto }}</span>
+
+                        <form method="post"
+                              action="/admin/opcion/eliminar"
+                              onsubmit="return confirm('¿Eliminar esta opción?');">
+                            <input type="hidden" name="opcion_id" value="{{ o.id }}">
+                            <button type="submit" class="btn-delete">Eliminar</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="color:#777;">No hay opciones registradas.</p>
+        {% endif %}
+    </div>
+{% endfor %}
+
+{% endblock %}
+

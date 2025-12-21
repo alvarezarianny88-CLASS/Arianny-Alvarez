@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>📊 Resultados de la encuesta: {{ encuesta }}</h2>
+
+{% if success %}
+<div style="padding:15px; background:#d8f3dc; color:#1b4332;
+            border-radius:8px; margin-bottom:20px;">
+    ✅ Voto realizado con éxito
+</div>
+{% endif %}
+
+{% for bloque in resultados_finales %}
+    <h3>{{ bloque.pregunta }}</h3>
+
+    <table>
+        <tr>
+            <th>Opción</th>
+            <th>Votos</th>
+            <th>%</th>
+        </tr>
+
+        {% for r in bloque.resultados %}
+        <tr>
+            <td>{{ r.opcion }}</td>
+            <td>{{ r.votos }}</td>
+            <td>{{ r.porcentaje }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><strong>Total votos:</strong> {{ bloque.total }}</p>
+    <hr>
+{% endfor %}
+
+{% endblock %}
+
+

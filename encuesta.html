@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Encuestas disponibles</h2>
+
+<form method="get" action="/votar">
+    <label>Correo registrado</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Encuesta</label><br>
+    <select name="encuesta_id" required>
+        {% for e in encuestas %}
+            <option value="{{ e.id }}">{{ e.titulo }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <button type="submit">Continuar</button>
+</form>
+{% endblock %}
+
+
+
+

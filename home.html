@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Panel Principal</h2>
+
+<div style="display:flex; gap:20px; margin-top:30px;">
+
+    <div style="flex:1; padding:20px; border:1px solid #ccc; border-radius:8px;">
+        <h3>Participantes</h3>
+        <p><strong>{{ participantes }}</strong> registrados</p>
+    </div>
+
+    <div style="flex:1; padding:20px; border:1px solid #ccc; border-radius:8px;">
+        <h3>Encuestas</h3>
+        <p><strong>{{ encuestas }}</strong> creadas</p>
+    </div>
+
+    <div style="flex:1; padding:20px; border:1px solid #ccc; border-radius:8px;">
+        <h3>Votos</h3>
+        <p><strong>{{ votos }}</strong> emitidos</p>
+    </div>
+
+</div>
+
+<p style="margin-top:40px;">
+Este panel muestra información obtenida directamente desde la base de datos.
+</p>
+{% endblock %}
